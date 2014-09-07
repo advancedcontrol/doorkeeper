@@ -24,7 +24,7 @@ module Doorkeeper
     AccessToken.send :include, AccessTokenMixin
     AccessGrant.send :include, AccessGrantMixin
   rescue => e
-    fail e, "Doorkeeper: ORM adapter not found (#{configuration.orm}). You probably need to add the related gem."
+    fail e, "Doorkeeper: ORM adapter not found (#{configuration.orm})."
   end
 
   def self.setup_application_owner
