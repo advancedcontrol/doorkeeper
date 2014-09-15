@@ -35,7 +35,7 @@ module Doorkeeper
     
 
     
-    ## TODO:: Where are these used?
+    ## TODO:: Where are these used
     def self.by_user(id)
       by_user_id({:key => [id], :stale => false})
     end
