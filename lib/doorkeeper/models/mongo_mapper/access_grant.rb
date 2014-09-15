@@ -1,3 +1,5 @@
+require "doorkeeper/models/concerns/access_grant"
+
 module Doorkeeper
   class AccessGrant
     include Doorkeeper::Concerns::AccessGrant

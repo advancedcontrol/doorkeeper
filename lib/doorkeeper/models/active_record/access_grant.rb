@@ -1,3 +1,5 @@
+require "doorkeeper/models/concerns/access_grant"
+
 module Doorkeeper
   class AccessGrant < ActiveRecord::Base
     include Doorkeeper::Concerns::AccessGrant

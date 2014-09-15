@@ -1,3 +1,5 @@
+require "doorkeeper/models/concerns/application"
+
 module Doorkeeper
   class Application < ActiveRecord::Base
     include Doorkeeper::Concerns::Application

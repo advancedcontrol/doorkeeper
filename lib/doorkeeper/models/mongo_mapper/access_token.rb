@@ -1,3 +1,5 @@
+require "doorkeeper/models/concerns/access_token"
+
 module Doorkeeper
   class AccessToken
     include Doorkeeper::Concerns::AccessToken

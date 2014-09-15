@@ -1,3 +1,4 @@
+require "doorkeeper/models/concerns/access_grant"
 require 'doorkeeper/models/mongoid/scopes'
 require 'doorkeeper/models/mongoid/version'
 

@@ -1,3 +1,4 @@
+require "doorkeeper/models/concerns/access_token"
 require 'doorkeeper/models/mongoid/scopes'
 
 module Doorkeeper

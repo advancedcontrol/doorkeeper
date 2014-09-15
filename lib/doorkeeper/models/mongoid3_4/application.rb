@@ -1,3 +1,5 @@
+require "doorkeeper/models/concerns/application"
+
 module Doorkeeper
   class Application
     include Mongoid::Document
