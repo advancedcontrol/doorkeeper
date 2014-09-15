@@ -1,5 +1,7 @@
 module Doorkeeper
   class AccessToken < ActiveRecord::Base
+    include Doorkeeper::Concerns::AccessToken
+    
     if Doorkeeper.configuration.active_record_options[:establish_connection]
       establish_connection Doorkeeper.configuration.active_record_options[:establish_connection]
     end

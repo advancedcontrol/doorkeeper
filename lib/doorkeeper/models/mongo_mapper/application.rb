@@ -26,5 +26,7 @@ module Doorkeeper
     def self.create_indexes
       ensure_index :uid, unique: true
     end
+
+    include Doorkeeper::Concerns::Application
   end
 end

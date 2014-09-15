@@ -1,5 +1,7 @@
 module Doorkeeper
   class Application < ActiveRecord::Base
+    include Doorkeeper::Concerns::Application
+
     if Doorkeeper.configuration.active_record_options[:establish_connection]
       establish_connection Doorkeeper.configuration.active_record_options[:establish_connection]
     end

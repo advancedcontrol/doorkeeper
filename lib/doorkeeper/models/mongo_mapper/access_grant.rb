@@ -1,5 +1,6 @@
 module Doorkeeper
   class AccessGrant
+    include Doorkeeper::Concerns::AccessGrant
     include MongoMapper::Document
     safe
     timestamps!

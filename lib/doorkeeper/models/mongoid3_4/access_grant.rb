@@ -3,6 +3,7 @@ require 'doorkeeper/models/mongoid/version'
 
 module Doorkeeper
   class AccessGrant
+    include Doorkeeper::Concerns::AccessGrant
     include Mongoid::Document
     include Mongoid::Timestamps
     include Models::Mongoid::Scopes

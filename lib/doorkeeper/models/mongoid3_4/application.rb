@@ -18,5 +18,7 @@ module Doorkeeper
       ids = AccessToken.where(resource_owner_id: resource_owner.id, revoked_at: nil).map(&:application_id)
       find(ids)
     end
+
+    include Doorkeeper::Concerns::Application
   end
 end

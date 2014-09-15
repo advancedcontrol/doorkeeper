@@ -13,13 +13,6 @@ module Doorkeeper
     end
 
     validates :resource_owner_id, :application_id, :token, :expires_in, :redirect_uri, presence: true
-    validates :token, uniqueness: true
-
-    before_validation :generate_token, on: :create
-
-    def self.by_token(token)
-      where(token: token).first
-    end
 
     private
 

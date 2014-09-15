@@ -2,6 +2,7 @@ require 'doorkeeper/models/mongoid/scopes'
 
 module Doorkeeper
   class AccessToken
+    include Doorkeeper::Concerns::AccessToken
     include Mongoid::Document
     include Mongoid::Timestamps
     include Models::Mongoid::Scopes
