@@ -2,7 +2,6 @@ require "doorkeeper/models/concerns/access_token"
 
 module Doorkeeper
   class AccessToken
-    include Doorkeeper::Concerns::AccessToken
     include MongoMapper::Document
     safe
     timestamps!
@@ -47,5 +46,7 @@ module Doorkeeper
       ensure_index :token, unique: true
       ensure_index [[:refresh_token, 1]], unique: true, sparse: true
     end
+
+    include Doorkeeper::Concerns::AccessToken
   end
 end

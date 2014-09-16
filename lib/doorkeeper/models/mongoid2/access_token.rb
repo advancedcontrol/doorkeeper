@@ -3,7 +3,6 @@ require 'doorkeeper/models/mongoid/scopes'
 
 module Doorkeeper
   class AccessToken
-    include Doorkeeper::Concerns::AccessToken
     include Mongoid::Document
     include Mongoid::Timestamps
     include Models::Mongoid::Scopes
@@ -37,5 +36,7 @@ module Doorkeeper
     def refresh_token
       self[:refresh_token]
     end
+
+    include Doorkeeper::Concerns::AccessToken
   end
 end

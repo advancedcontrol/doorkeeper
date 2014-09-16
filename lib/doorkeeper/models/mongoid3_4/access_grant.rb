@@ -4,7 +4,6 @@ require 'doorkeeper/models/mongoid/version'
 
 module Doorkeeper
   class AccessGrant
-    include Doorkeeper::Concerns::AccessGrant
     include Mongoid::Document
     include Mongoid::Timestamps
     include Models::Mongoid::Scopes
@@ -25,5 +24,7 @@ module Doorkeeper
     field :revoked_at, type: DateTime
 
     index({ token: 1 }, { unique: true })
+
+    include Doorkeeper::Concerns::AccessGrant
   end
 end

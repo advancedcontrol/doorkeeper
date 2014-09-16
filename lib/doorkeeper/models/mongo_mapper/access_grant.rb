@@ -2,7 +2,6 @@ require "doorkeeper/models/concerns/access_grant"
 
 module Doorkeeper
   class AccessGrant
-    include Doorkeeper::Concerns::AccessGrant
     include MongoMapper::Document
     safe
     timestamps!
@@ -24,5 +23,7 @@ module Doorkeeper
     def self.create_indexes
       ensure_index :token, unique: true
     end
+
+    include Doorkeeper::Concerns::AccessGrant
   end
 end
