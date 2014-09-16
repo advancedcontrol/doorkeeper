@@ -14,7 +14,7 @@ module Doorkeeper
           def revoked_at
             revoked = self.attributes[:revoked_at]
             unless revoked.nil?
-              Time.at(self.attributes[:revoked_at]).to_datetime
+              Time.at(revoked).to_datetime
             end
           end
 
