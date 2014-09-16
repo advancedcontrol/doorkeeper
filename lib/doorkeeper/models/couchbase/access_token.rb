@@ -14,7 +14,7 @@ module Doorkeeper
 
     # Couchbase views for lookup
     view  :by_resource_owner_id,
-          :by_token,
+          :by_application_id,
           :by_application_id_and_resource_owner_id
 
 
@@ -64,6 +64,11 @@ module Doorkeeper
     # Called from Application.rb -> authorized_for
     def self.where_owner_id(id)
       Application.find(*by_resource_owner_id({:key => id}))
+    end
+
+    # Called from Application.rb -> clean_up
+    def self.where_application_id(id)
+      by_application_id({:key => id, :stale => false})
     end
 
     private
