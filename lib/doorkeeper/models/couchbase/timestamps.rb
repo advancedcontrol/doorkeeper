@@ -14,7 +14,7 @@ module Doorkeeper
           def revoked_at
             revoked = self.attributes[:revoked_at]
             unless revoked.nil?
-              Time.at(revoked).to_datetime
+              Time.at(revoked)
             end
           end
 
@@ -23,7 +23,7 @@ module Doorkeeper
           end
 
           def created_at
-            Time.at(self.attributes[:created_at]).to_datetime
+            Time.at(self.attributes[:created_at])
           end
 
           # Couchbase is missing update_attribute
