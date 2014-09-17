@@ -19,7 +19,10 @@ module Doorkeeper
           end
 
           def revoked_at=(time)
-            write_attribute(:revoked_at, time.to_time.to_i) unless time.nil?
+            if time
+              number = time.is_a?(Numeric) ? time.to_i : time.to_time.to_i
+              write_attribute(:revoked_at, number)
+            end
           end
 
           def created_at

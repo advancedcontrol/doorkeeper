@@ -10,13 +10,16 @@ module Doorkeeper
 
     attribute :created_at, :default => lambda { Time.now.to_i }
 
-    view  :by_uid_and_secret,
-          :show_all,
+    view  :show_all,
           :by_user_id
 
 
     def self.by_uid_and_secret(uid, secret)
-      find_by_uid_and_secret({:key => [uid, secret]})
+      app = find_by_id(uid)
+      if app
+        return app.secret == secret ? app : nil
+      end
+      nil
     end
 
     def self.by_uid(uid)

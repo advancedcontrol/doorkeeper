@@ -25,7 +25,6 @@ module Doorkeeper
     def self.by_refresh_token(refresh_token)
       id = AccessToken.bucket.get("refresh-#{refresh_token}", {quiet: true})
       if id
-        # TODO:: touch the entry with ttl period
         AccessToken.find_by_id(id)
       end
     end
@@ -82,8 +81,10 @@ module Doorkeeper
 
     after_create :set_refresh_token, if: :use_refresh_token?
     def set_refresh_token
-      # TODO:: add ttl for last accessed
-      ::Doorkeeper::AccessToken.bucket.set("refresh-#{self.refresh_token}", self.id)
+      # TODO:: add config for refresh token time
+      expire = 3.months.to_i
+      ::Doorkeeper::AccessToken.bucket.touch self.id, :ttl => expire
+      ::Doorkeeper::AccessToken.bucket.set("refresh-#{self.refresh_token}", self.id, :ttl => expire)
     end
 
     before_delete :remove_refresh_token, if: :use_refresh_token?
