@@ -103,6 +103,13 @@ Generate the `db/indexes.rb` file and create indexes for the doorkeeper models:
 
     rails generate doorkeeper:mongo_mapper:indexes
     rake db:index
+    
+#### Couchbase views
+
+Generate the viwes for couchbase models:
+
+`rails generate doorkeeper:couchbase:views`
+
 
 ### Routes
 
